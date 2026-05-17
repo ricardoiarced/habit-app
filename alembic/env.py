@@ -27,7 +27,7 @@ target_metadata = None
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
 from app.database import Base
-from app.models import habit
+from app.models import User, Habit, Entry, Reminder
 
 target_metadata = Base.metadata
 
