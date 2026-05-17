@@ -5,24 +5,23 @@ from app.views.habit_list_view import habit_list_view
 
 
 def main(page: ft.Page):
-    print(">>> main(page) ejecutado — la sesión del navegador conectó")
+    print(">>> main(page) executed — browser session got connected")
     page.title = "Habit App"
     page.theme_mode = ft.ThemeMode.LIGHT
 
     try:
         session = SessionLocal()
         service = HabitService(session)
-        print(">>> Sesión de BD creada, consultando hábitos...")
+        print(">>> DB session created, querying habits...")
 
         view = habit_list_view(page, service)
-        print(">>> View construida, montándola en page.views")
+        print(">>> View built, mounting it on page.views")
 
         page.views.clear()
         page.views.append(view)
         page.update()
-        print(">>> page.update() llamado. Si no ves nada en el navegador a partir de aquí, el problema es del cliente JS, no de Python.")
+        print(">>> page.update() called. If you don't see anything from now on, the JS client is the problem, not Python.")
     except Exception as e:
-        # Si algo revienta dentro de main, lo verás en consola en lugar de en pantalla en blanco.
         print(f"!!! ERROR en main: {type(e).__name__}: {e}")
         import traceback
         traceback.print_exc()
