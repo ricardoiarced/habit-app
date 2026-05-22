@@ -28,10 +28,10 @@ class HabitService:
         return self.entry_repo.toggle(habit_id, date.today())
     
     def is_completed_today(self, habit_id: uuid.UUID) -> bool:
-        return self.entry_repo.is_completed_today(habit_id)
+        return self.entry_repo.is_completed_today(habit_id, date.today())
     
-    def get_stats(self, habit: uuid.UUID) -> dict:
-        """Return current streask, max streask, and percentage of completion."""
+    def get_stats(self, habit: Habit) -> dict:
+        """Return Current Streak, Max Streak, and Completion Rate."""
         return (self.streak_calc.get_all_stats(
             habit.id,
             habit.created_at.date()

@@ -38,7 +38,7 @@ class EntryRepository:
         return (
             self.session.query(Entry)
             .filter(Entry.habit_id == habit_id, 
-                    Entry.completed_at == date.today()
+                    Entry.completed_at == day
                     )
             .first() is not None
         )
