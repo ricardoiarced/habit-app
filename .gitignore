@@ -20,3 +20,5 @@ skills-lock.json
 # IDE
 .vscode/
 .idea/
+
+docs/

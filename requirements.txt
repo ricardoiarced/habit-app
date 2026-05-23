@@ -4,4 +4,6 @@ alembic
 psycopg2-binary
 pydantic-settings
 apscheduler
+filelock
+plyer
 pytest
